@@ -1,0 +1,34 @@
+<div class="container p-5 d-flex flex-column my-5">
+  <div class="p-5 grey-color-border rounded shadow-sm ">
+    <form [formGroup]="newItemFormGroup" (ngSubmit)="submitItems(newItemFormGroup)">
+      <div class="row justify-content-center">
+        <div class="form-group col-md-4">
+          <label for="firstName" class="py-1">{{'Full Name'}}</label>
+          <input [ngClass]="(newItemFormGroup.controls.NewUserName.invalid && isFormSubmitted) ? 'border-danger':''" class="form-control form-control-sm" formControlName="NewUserName" id="firstName" type="text" placeholder="Vinay Bharti">
+          <small class="text-danger" *ngIf="newItemFormGroup.controls.NewUserName.invalid && isFormSubmitted">{{'Please Enter Name'}}</small>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="itemName" class="py-1">{{'Item'}}</label>
+          <input [ngClass]="(newItemFormGroup.controls.NewItemName.invalid && isFormSubmitted) ? 'border-danger':''" class="form-control form-control-sm" id="itemName" formControlName="NewItemName" type="text" placeholder="Blur">
+          <small class="text-danger" *ngIf="newItemFormGroup.controls.NewItemName.invalid && isFormSubmitted">{{'Please Enter Item Name'}}</small>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="form-group col-md-4">
+          <label for="ItemQuantity" class="py-1">{{'Item Quantity'}}</label>
+          <input [ngClass]="(newItemFormGroup.controls.ItemQuantity.invalid && isFormSubmitted) ? 'border-danger':''" class="form-control form-control-sm" formControlName="ItemQuantity" id="ItemQuantity" placeholder="5" type="number">
+          <small class="text-danger" *ngIf="newItemFormGroup.controls.ItemQuantity.invalid && isFormSubmitted">{{'Please Enter Quantity'}}</small>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="ItemAmount" class="py-1">{{'Amount'}}</label>
+          <input [ngClass]="(newItemFormGroup.controls.ItemAmount.invalid && isFormSubmitted) ? 'border-danger':''" class="form-control form-control-sm" id="ItemAmount" formControlName="ItemAmount" placeholder="₹100" type="text">
+          <small class="text-danger" *ngIf="newItemFormGroup.controls.ItemAmount.invalid && isFormSubmitted">{{'Please Enter Amount'}}</small>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-5">
+        <button class="btn btn-sm btn-primary px-4 me-2">{{btnTxt}}</button>
+        <a class="btn btn-sm btn-primary px-4" routerLink="/shop-info">{{'Cancel'}}</a>
+      </div>
+    </form>
+  </div>
+</div>
